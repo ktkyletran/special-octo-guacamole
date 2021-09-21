@@ -1,10 +1,12 @@
-require('dotenv').config()
 const express = require("express");
 const path = require('path');
 const mongoose = require("mongoose");
 const routes = require("./routes");
 const app = express();
 const PORT = process.env.PORT || 3001;
+const db = require('./config/keys').MONGODB_URI;
+require('dotenv').config();
+
 
 // Define middleware here
 app.use(express.urlencoded({ extended: true }));
@@ -17,12 +19,12 @@ if (process.env.NODE_ENV === "production") {
 app.use(routes);
 
 // Connect to the Mongo DB
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/Nubee",
-  {
+mongoose
+  .connect(db, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
-  }
-);
+  })
+  .then(() => console.log('~~ MongoDB successfully connected ~~'))
 
 // Start the API server
 app.listen(PORT, function () {
