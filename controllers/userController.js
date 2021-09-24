@@ -15,8 +15,10 @@ module.exports = {
     }
 
     db.User
-      .findOne({ email: email })
-      .then(() => {
+      .findOne({ email })
+      .then((user) => {
+        if (user) return res.status(400).json({ msg: "User already exists under that email" });
+        
         const newUser = new db.User({
           firstName,
           lastName,

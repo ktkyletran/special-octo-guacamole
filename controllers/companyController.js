@@ -15,7 +15,7 @@ module.exports = {
     }
 
     db.Company
-      .findOne({ email: email })
+      .findOne({ email })
       .then(() => {
         const newCompany = new db.Company({
           name,
