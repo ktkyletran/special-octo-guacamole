@@ -59,6 +59,13 @@ module.exports = {
         });
       })
       .catch(err => console.log(err))
-  }
+  },
+  findAll: function(req, res) {
+    db.Company
+    .find(req.query)
+    .sort({date: -1 })
+    .then(companyList => res.json(companyList))
+    .catch(err => res.status(422).json(err));
+},
 };
 

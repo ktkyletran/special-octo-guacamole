@@ -18,7 +18,7 @@ module.exports = {
       .findOne({ email })
       .then((user) => {
         if (user) return res.status(400).json({ msg: "User already exists under that email" });
-        
+
         const newUser = new db.User({
           firstName,
           lastName,
@@ -59,6 +59,13 @@ module.exports = {
         });
       })
       .catch(err => console.log(err))
-  }
+  },
+  findAll: function(req, res) {
+    db.User
+    .find(req.query)
+    .sort({date: -1 })
+    .then(userList => res.json(userList))
+    .catch(err => res.status(422).json(err));
+},
 };
 

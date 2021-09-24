@@ -16,7 +16,7 @@ module.exports = {
       description,
       created
     });
-    
+
     db.Post
       .create(newPost)
       .then(postData => res.json(postData))
@@ -24,5 +24,12 @@ module.exports = {
         console.log(err)
       });
   },
+  findAll: function(req, res) {
+    db.Post
+    .find(req.query)
+    .sort({date: -1 })
+    .then(postList => res.json(postList))
+    .catch(err => res.status(422).json(err));
+},
 };
 
