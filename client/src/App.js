@@ -1,10 +1,15 @@
 import './App.css';
+import { BrowserRouter as Router, Route } from "react-router-dom";
+import Home from './pages/Home/Home';
+
 
 function App() {
   return (
-    <div className="App">
-      <h1>NuBee</h1>
+    <Router>
+    <div>
+      <Route exact path="/" component={Home} />
     </div>
+  </Router>
   );
 }
 
