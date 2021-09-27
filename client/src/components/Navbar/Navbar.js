@@ -10,11 +10,11 @@ const Navbar = () => {
   return (
     <AppBar position="static" sx={{ background: 'transparent', boxShadow: 'none', paddingTop: '0.75rem' }}>
       <Toolbar>
-        <Button href="/" disableRipple disableFocusRipple disableElevation variant="string" className="logo-btn">
-          <img src={BeeLogo} className="navbar-logo"></img>
-        </Button>
+        <Link to="/" className="logo-btn">
+          <img src={BeeLogo} className="navbar-logo" alt="NuBee logo"></img>
+        </Link>
         <Button 
-          href="/login" 
+          href="/signup" 
           className="nav-btn" 
           variant="contained"
           sx={{
@@ -29,10 +29,10 @@ const Navbar = () => {
             }
           }}
         >
-          Sign in
+          Sign up
         </Button>
-        <Link to="/about" className="nav-link">
-          About
+        <Link to="/signin" className="nav-link">
+          Sign in
         </Link>
       </Toolbar>
     </AppBar>

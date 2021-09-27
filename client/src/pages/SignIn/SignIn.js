@@ -6,7 +6,8 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
 import Link from '@mui/material/Link';
 import Grid from '@mui/material/Grid';
-import Box from '@mui/material/Box';import Typography from '@mui/material/Typography';
+import Box from '@mui/material/Box';
+import Typography from '@mui/material/Typography';
 import './SignIn.css'
 
 function Copyright(props) {
@@ -87,7 +88,7 @@ export default function Login() {
                 </Link>
               </Grid>
               <Grid item>
-                <Link href="#" variant="body2">
+                <Link href="/signup" variant="body2">
                   {"Don't have an account? Sign Up"}
                 </Link>
               </Grid>
