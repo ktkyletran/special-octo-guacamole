@@ -1,11 +1,7 @@
-import * as React from 'react';
-import Button from '@mui/material/Button';
-import CssBaseline from '@mui/material/CssBaseline';
-import TextField from '@mui/material/TextField';
-import Link from '@mui/material/Link';
-import Grid from '@mui/material/Grid';
-import Box from '@mui/material/Box';
-import Typography from '@mui/material/Typography';
+import React from 'react';
+import { useHistory } from 'react-router-dom';
+import { Button, CssBaseline, TextField, Link, Grid, Box, Typography } from '@mui/material';
+import API from '../../utils/API';
 
 function Copyright(props) {
   return (
@@ -21,14 +17,20 @@ function Copyright(props) {
 }
 
 export default function SignUp() {
+  const history = useHistory();
+
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
-    // eslint-disable-next-line no-console
-    console.log({
+
+    API.createUser({
+      firstName: data.get('firstName'),
+      lastName: data.get('lastName'),
       email: data.get('email'),
       password: data.get('password'),
     });
+
+    history.push('/');
   };
 
   return (
@@ -62,9 +64,9 @@ export default function SignUp() {
                 <TextField
                   margin="normal"
                   required
-                  id="last"
+                  id="lastName"
                   label="Last Name"
-                  name="last"
+                  name="lastName"
                   autoComplete="family-name"
                 />
               </Grid>

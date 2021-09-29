@@ -1,14 +1,7 @@
 import * as React from 'react';
-import Button from '@mui/material/Button';
-import CssBaseline from '@mui/material/CssBaseline';
-import TextField from '@mui/material/TextField';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import Checkbox from '@mui/material/Checkbox';
-import Link from '@mui/material/Link';
-import Grid from '@mui/material/Grid';
-import Box from '@mui/material/Box';
-import Typography from '@mui/material/Typography';
-import './SignIn.css'
+import { Button, CssBaseline, TextField, FormControlLabel, Checkbox, Link, Grid, Box, Typography } from '@mui/material';
+import API from '../../utils/API';
+import './SignIn.css';
 
 function Copyright(props) {
   return (
@@ -27,15 +20,15 @@ export default function Login() {
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
-    // eslint-disable-next-line no-console
-    console.log({
+
+    API.loginUser({
       email: data.get('email'),
       password: data.get('password'),
     });
   };
 
   return (
-      <div component="main" maxWidth="xs" className="login-container"> 
+      <div component="main" className="login-container"> 
         <CssBaseline />
         <Box
           sx={{

@@ -1,5 +1,4 @@
 import React from 'react';
-import InputField from '../../components/InputField/InputField';
 import { Button } from '@mui/material';
 import TextField from '@mui/material/TextField';
 import Logo from '../../assets/Logo.png';
@@ -9,7 +8,6 @@ import './Home.css';
 const Home = () => {
   return (
     <div className="main">
-      {/* <Navbar /> */}
       <div className="brand">
         <img src={Logo} alt="NuBee Logo"></img>
         <p className="brand-desc">Tailored for those entering a new field of work</p>
