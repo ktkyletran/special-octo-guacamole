@@ -18,7 +18,6 @@ module.exports = {
       .then(user => {
         if (!user) return res.status(400).json({ msg: 'Email does not exist' })
 
-        // const user = userData[0];
         // Validate Password
         bcrypt.compare(password, user.password)
           .then(isMatch => {
