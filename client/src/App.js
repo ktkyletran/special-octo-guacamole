@@ -2,7 +2,7 @@ import './App.css';
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import Home from './pages/Home/Home';
 import SignIn from './pages/SignIn/SignIn';
-import SignUp from './pages/SignUp';
+import AuthForm from './pages/AuthForm';
 import Navbar from './components/Navbar/Navbar';
 
 function App() {
@@ -13,7 +13,7 @@ function App() {
         <Navbar />
         <Route exact path="/" component={Home} />
         <Route exact path="/signin" component={SignIn} />
-        <Route exact path="/signup" component={SignUp} />
+        <Route exact path="/signup" component={AuthForm} />
       </div>
     </div>
   </Router>
